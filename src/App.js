@@ -10,7 +10,11 @@ function App() {
 
     return (
         <div className="App">
-            <MyStyled bg_color={"red"}/>
+            <MyStyled bg_color={true}>
+              <p>im here</p>
+            </MyStyled>
+            {/* bg_color={true} 지우면 보라색됨 */}
+
             {/* <h1>내 버킷리스트</h1> */}
             {/* 컴포넌트를 넣어줍니다. */}
             {/* <BucketList list_a = {list}/> */}
@@ -21,8 +25,18 @@ function App() {
 const MyStyled = styled.div `
   width: 50vw;
   min-height: 150px;
-  background-color: ${(props) => (props.bg_color)}
-  // ${(props) => {return props.bg_color}}와 같다
+  background-color: ${(props) => (props.bg_color ? "red" : "purple")};
+  // if문 사용 불가, 삼항연산자 사용 가능
+  p {
+    color: blue;
+  }
+  // sass 문법도 사용 가능하다.
+  // 네스팅 기능
+  &:hover{
+    background-color: yellow;
+  }
+  // sass 문법 2 : &는 나 자신을 의미
+  
 `;
 
 export default App;
