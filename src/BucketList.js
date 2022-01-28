@@ -10,18 +10,26 @@ const BucketList = (props) => {
     console.log(props)
 
     // Quiz 1: my_list에 ['a', 'b', 'c'] 대신 부모 컴포넌트가 넘겨준 값을 넣으려면 어떻게 해야할까요?
-    // const my_list = props.list_a;
+    const my_list = props.list_a;
 
-    // 컴포넌트가 뿌려줄 ui 요소(리엑트 엘리먼트라고 불러요.)를 반환해줍니다.
 
+    const my_wrap = React.useRef(null);
+    // useRef()의 인자는 가장 초기값이다.
+    console.log(my_wrap)
+    // ref를 만들자마자 console을 찍었기때문에 null이 나온다 그 다음에 return이 된다.
+    window.setTimeout(() => { // 1초 뒤에는?!
+        console.log(my_wrap);
+      }, 1000);
+    // {current: div} 나온다. 1초 뒤에는 진짜 DOM으로 리턴해주는 요소들을 다 보내버렸기 때문.
     
 
+    // 컴포넌트가 뿌려줄 ui 요소(리엑트 엘리먼트라고 불러요.)를 반환해줍니다.
     return (
-        <div>
+        <div ref={my_wrap}>
             {
                 // js의 내장 함수 중 하나인 map입니다. 리스트의 갯수만큼 => 오른쪽 구문을 반복해요. 자세한 사용법은 아래 링크를 확인해주세요.
                 // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-                props.list_a.map((list, index) => {
+                my_list.map((list, index) => {
                     // props가 list형이기 때문에 props.list_a로 가져와야 배열의 형태로 가져온다.
                     // 콘솔을 확인해봅시다 :)
                     console.log(list);
