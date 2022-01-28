@@ -30,12 +30,12 @@ const MyStyled = styled.div `
   p {
     color: blue;
   }
-  // sass 문법도 사용 가능하다.
+  // scss 문법도 사용 가능하다.
   // 네스팅 기능
   &:hover{
     background-color: yellow;
   }
-  // sass 문법 2 : &는 나 자신을 의미
+  // scss 문법 2 : &는 나 자신을 의미
   
 `;
 
