@@ -1,5 +1,6 @@
 // 리액트 패키지를 불러옵니다.
 import React from 'react';
+import styled from "styled-components";
 
 // 함수형 컴포넌트는 이렇게 쓸 수도 있고 function Bucketlist(props){ return ( <div>버킷 리스트</div>
 // ); } 이렇게 쓸 수도 있어요. =>가 들어간 함수를 화살표 함수라고 불러요. 저희는 앞으로 화살표 함수를 사용할거예요. 앗 () 안에
@@ -24,13 +25,28 @@ const BucketList = (props) => {
                     // props가 list형이기 때문에 props.list_a로 가져와야 배열의 형태로 가져온다.
                     // 콘솔을 확인해봅시다 :)
                     console.log(list);
-                    return (<div key={index}>{list}</div>);
+                    return (<div key={index}><ListBox>{list}</ListBox></div>);
                 })
             }
         </div>
     );
 }
 
+
+const ListBox = styled.button`
+    background-color: #CDCDCD;
+    height: 5vh;
+    width: 30vw;
+    font-size: 0.8em;
+    margin: 1vh 2vw;
+    padding: 1vh;
+    border: none;
+    border-radius: 3px;
+    &:hover{
+        background-color: white;
+        border: 2px solid #CDCDCD;
+    }
+`;
 // 우리가 만든 함수형 컴포넌트를 export 해줍니다. export 해주면 다른 컴포넌트에서 BucketList 컴포넌트를 불러다 쓸 수
 // 있어요.
 export default BucketList;

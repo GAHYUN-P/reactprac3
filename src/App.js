@@ -10,33 +10,26 @@ function App() {
 
     return (
         <div className="App">
-            <MyStyled bg_color={true}>
-              <p>im here</p>
-            </MyStyled>
-            {/* bg_color={true} 지우면 보라색됨 */}
-
-            {/* <h1>내 버킷리스트</h1> */}
-            {/* 컴포넌트를 넣어줍니다. */}
-            {/* <BucketList list_a = {list}/> */}
+          <Container>         
+            <h1>내 버킷리스트</h1>
+            <hr/>
+            <BucketList list_a = {list}/>
+          </Container>  
         </div>
     );
 }
 
-const MyStyled = styled.div `
-  width: 50vw;
-  min-height: 150px;
-  background-color: ${(props) => (props.bg_color ? "red" : "purple")};
-  // if문 사용 불가, 삼항연산자 사용 가능
-  p {
-    color: blue;
-  }
-  // scss 문법도 사용 가능하다.
-  // 네스팅 기능
-  &:hover{
-    background-color: yellow;
-  }
-  // scss 문법 2 : &는 나 자신을 의미
-  
+const Container = styled.div `
+    background-color: #F4D0DA;
+    width: 35vh;
+    height: 50vw;
+    margin: auto;
+    border-radius: 5px;
+    h1 {
+      color: #AEAEB0;
+      font-size: 1.5em;
+      padding-top: 2vh;
+    }
 `;
 
 export default App;
